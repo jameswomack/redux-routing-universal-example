@@ -1,5 +1,7 @@
 {
   "name": "redux-routing-universal-example",
+  "repository": "https://github.com/jameswomack/redux-routing-universal-example.git",
+  "LICENSE": "MIT",
   "scripts": {
     "build": "browserify client.js | uglifyjs -cm > public/bundle.js",
     "start": "npm run www & npm run watch",
