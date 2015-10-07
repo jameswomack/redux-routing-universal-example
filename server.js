@@ -7,7 +7,10 @@ import { Provider } from 'react-redux'
 import { navigate } from 'redux-routing'
 
 import configureStore from './lib/configureStore'
+import shortcutStore from './lib/shortcutStore'
+
 import Root from './lib/Root'
+import Shawty from './lib/Shawty'
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET') {
@@ -24,14 +27,19 @@ const server = http.createServer((req, res) => {
 
     const state = JSON.stringify(store.getState())
 
-    const html = React.renderToString(<Provider store={store}>
+    const shawtyHTML = React.renderToString(<Provider store={shortcutStore}>
+      {() => <Shawty />}
+    </Provider>)
+
+    const rootHTML = React.renderToString(<Provider store={store}>
       {() => <Root />}
     </Provider>)
 
     const doc = `<!doctype html>
       <html>
-        <body>
-          <div id="root">${html}</div>
+        <body style="text-align:center;font-family:'Helvetica Neue';">
+          <div id="root">${rootHTML}</div>
+          <div id="shawty">${shawtyHTML}</div>
           <script>window._state = ${state}</script>
           <script src="/bundle.js"></script>
         </body>

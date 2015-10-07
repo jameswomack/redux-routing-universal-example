@@ -1,7 +1,6 @@
 {
   "name": "redux-routing-universal-example",
   "repository": "https://github.com/jameswomack/redux-routing-universal-example.git",
-  "LICENSE": "MIT",
   "scripts": {
     "build": "browserify client.js | uglifyjs -cm > public/bundle.js",
     "start": "npm run www & npm run watch",
@@ -9,17 +8,19 @@
     "www": "babel-node server.js --stage 0"
   },
   "dependencies": {
-    "react": "^0.13.3",
-    "react-redux": "^2.0.0",
-    "redux": "^2.0.0",
-    "redux-routing": "^0.3.0"
+    "mousetrap": "1.5.3",
+    "react": "0.13.3",
+    "react-redux": "2.0.0",
+    "redux": "2.0.0",
+    "redux-routing": "0.3.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babelify": "^6.3.0",
-    "browserify": "^11.0.1",
-    "uglifyjs": "^2.4.10",
-    "watchify": "^3.4.0"
+    "babel": "5.8.23",
+    "babelify": "6.3.0",
+    "browserify": "11.0.1",
+    "eslint-plugin-react": "3.5.1",
+    "uglifyjs": "2.4.10",
+    "watchify": "3.4.0"
   },
   "browserify": {
     "transform": [
@@ -31,5 +32,5 @@
       ]
     ]
   },
-  "license": "public domain"
+  "license": "MIT"
 }

@@ -3,12 +3,19 @@ import { Provider } from 'react-redux'
 import { History, navigate } from 'redux-routing'
 
 import configureStore from './lib/configureStore'
+import shortcutStore  from './lib/shortcutStore'
+
 import Root from './lib/Root'
+import Shawty from './lib/Shawty'
 
-const store = configureStore(window._state, History)
+const routeStore = configureStore(window._state, History)
 
-store.dispatch(navigate(window._state.href))
+routeStore.dispatch(navigate(window._state.href))
 
-React.render(<Provider store={store}>
+React.render(<Provider store={routeStore}>
   {() => <Root />}
 </Provider>, document.getElementById('root'))
+
+React.render(<Provider store={shortcutStore}>
+  {() => <Shawty />}
+</Provider>, document.getElementById('shawty'))
